@@ -11,6 +11,7 @@ flask-migrate = "*"
 flask = "*"
 flask-bootstrap = "*"
 email-validator = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

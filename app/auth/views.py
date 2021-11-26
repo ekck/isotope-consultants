@@ -2,6 +2,7 @@
 
 from flask import flash, redirect, render_template, url_for
 from flask_login import login_required, login_user, logout_user
+from flask_sqlalchemy import SQLAlchemy
 
 from . import auth
 from .forms import LoginForm, RegistrationForm
@@ -17,14 +18,19 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(email=form.email.data,
-                            username=form.username.data,
+                            
                             first_name=form.first_name.data,
                             last_name=form.last_name.data,
+                            username=form.username.data,
                             password=form.password.data)
 
         # add user to the database
         db.session.add(user)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except:
+            session.rollback()
+            raise
         flash('You have successfully registered! You may now login.')
 
         # redirect to the login page
