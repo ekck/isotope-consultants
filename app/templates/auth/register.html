@@ -34,7 +34,8 @@
                           {% endif %}
                         
                         </div>
-                        <div class="form-outline mb-4">
+                        <div class="row">
+                          <div class="form-outline mb-4">
                           {{ wtf.form_field(form.first_name, class='form-control', 
                               placeholder='First name') }}
                           {% if form.first_name.errors %}
@@ -43,9 +44,9 @@
                               <li>{{ error }}</li>
                             {% endfor %}
                           </ul>
-                        {% endif %}
-                        </div>
-                        <div class="form-outline mb-4">
+                         {% endif %}
+                         </div>
+                         <div class="form-outline mb-4">
                           {{ wtf.form_field(form.last_name, class='form-control', 
                             placeholder='Last name') }}
                           {% if form.last_name.errors %}
@@ -54,7 +55,8 @@
                               <li>{{ error }}</li>
                             {% endfor %}
                           </ul>
-                        {% endif %}
+                         {% endif %}
+                         </div>
                         </div>
                         <div class="form-outline mb-4">
                           {{ wtf.form_field(form.username, class='form-control', 
