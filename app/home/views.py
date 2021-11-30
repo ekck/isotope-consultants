@@ -56,4 +56,4 @@ def admin_dashboard():
     if not current_user.is_admin:
         abort(403)
 
-    return render_template('home/admin_dashboard.html', title="Dashboard")
+    return render_template('admin/dash.html', title="Admin Dashboard")
