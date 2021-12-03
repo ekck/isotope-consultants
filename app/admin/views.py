@@ -77,7 +77,7 @@ def edit_role(id):
         role.name = form.name.data
         role.description = form.description.data
         db.session.commit()
-        flash('You have successfully edited the department.')
+        flash('You have successfully edited the role.')
 
         # redirect to the roles page
         return redirect(url_for('admin.list_roles'))
