@@ -1,5 +1,5 @@
 # app/models.py
-
+from datetime import datetime
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -111,11 +111,27 @@ class Staff(db.Model):
     name = db.Column(db.String(50))
     position = db.Column(db.String(50))
     qualification = db.Column(db.String(50))
+    
 
     def __repr__(self):
         return '<Staff: {}>'.format(self.name)
 
+class Post(db.Model):
+    """
+    Create Post table
+    """
 
+    __tablename__ = 'blogs'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50))
+    author = db.Column(db.String(50))
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    body = db.Column(db.Text)
+    
+
+    def __repr__(self):
+        return '<Blog: {}>'.format(self.title)
 
 
     

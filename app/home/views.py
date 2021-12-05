@@ -46,7 +46,7 @@ def dashboard():
     """
     Render the dashboard template on the /dashboard route
     """
-    return render_template('home/dashboard.html', title="Dashboard")
+    return render_template('blog/dash_index.html', title="Blog Dashboard")
 
 # add admin dashboard view
 @home.route('/admin/dashboard')
