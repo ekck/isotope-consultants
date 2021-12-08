@@ -121,17 +121,34 @@ class Post(db.Model):
     Create Post table
     """
 
-    __tablename__ = 'blogs'
+    __tablename__ = 'posts'
     
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))
     author = db.Column(db.String(50))
     date = db.Column(db.DateTime, default=datetime.utcnow)
     body = db.Column(db.Text)
+    draft = db.Column(db.Boolean, default=False)
     
 
     def __repr__(self):
         return '<Blog: {}>'.format(self.title)
+
+class Cartegory(db.Model):
+    """
+    Create Cartegory table
+    """
+
+    __tablename__ = 'cartegories'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    description = db.Column(db.String(200))
+    
+
+    def __repr__(self):
+        return '<Carteory: {}>'.format(self.name)
+
 
 
     
