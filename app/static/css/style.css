@@ -383,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero .carousel-container {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   position: absolute;
   bottom: 60px;
@@ -1006,11 +1006,11 @@ section {
 # Our Skills
 --------------------------------------------------------------*/
 .skills .progress {
-  height: 50px;
+  height: 60px;
   display: block;
   background: none;
+  border-radius: 5px;
 }
-
 .skills .progress .skill {
   padding: 0;
   margin: 0 0 6px 0;
@@ -1020,20 +1020,17 @@ section {
   font-family: "Poppins", sans-serif;
   color: #111;
 }
-
 .skills .progress .skill .val {
   float: right;
   font-style: normal;
 }
-
 .skills .progress-bar-wrap {
   background: #e7e7e7;
 }
-
 .skills .progress-bar {
   width: 1px;
   height: 10px;
-  transition: .9s;
+  transition: 0.9s;
   background-color: #1bbd36;
 }
 
