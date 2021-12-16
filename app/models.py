@@ -128,6 +128,7 @@ class Post(db.Model):
     author = db.Column(db.String(50))
     date = db.Column(db.DateTime, default=datetime.utcnow)
     body = db.Column(db.Text)
+    tags = db.Column(db.String(50))
     draft = db.Column(db.Boolean, default=False)
     
 
