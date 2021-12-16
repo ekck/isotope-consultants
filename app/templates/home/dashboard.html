@@ -12,9 +12,12 @@
       <div class="container">
 
         <div class="row">
+          
 
           <div class="col-lg-4 ">
+            
             <div class="sidebar" data-aos="fade-right">
+              
                 <h3 class="sidebar-title">Search</h3>
               <div class="sidebar-item search-form">
                 <form action="">
@@ -24,17 +27,22 @@
 
               </div><!-- End sidebar search formn-->
               <div class="sidebar-title">
+                <a href="{{ url_for('home.dashboard') }}"><i class="fa fa-user"></i>  Hi, {{ current_user.username }}!</a>
+                <br>
                 <a href="#">Dashboard </a>
+                <br>
+               
+               
               </div>
               <h3 class="sidebar-title">Blog Posts</h3>
               <div class="sidebar-item categories">
                 <ul>
 
-                  <li><a href="#">New Post </a></li>
-                  <li><a href="#">View Posts </a></li>
-                  <li><a href="#">Cartegories </a></li>
+                  <li><a href="/new_post">New Post </a></li>
+                  <li><a href="/view_posts">View Posts </a></li>
+                  <li><a href="/cartegories">Cartegories </a></li>
                   
-                  <li><a href="#">Drafts</a></li>
+                  <li><a href="/drafts">Drafts</a></li>
                   
                 </ul>
 
