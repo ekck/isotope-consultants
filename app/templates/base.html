@@ -269,7 +269,10 @@
 
   <!-- Template Main JS File -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
+  <script src="//cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+  <script type="text/javascript">
+    CKEDITOR.replace('editor')
+  </script>
 </body>
 
 </html>

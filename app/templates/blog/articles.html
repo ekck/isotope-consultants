@@ -3,65 +3,58 @@
 {% block title %}List Article{% endblock %}
 
 {% block blog %}
+<div>
+    {{ utils.flashed_messages() }}
+    <div>
+        {% if articles %}
+        <div>
 <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Body</th>
+        <th scope="col">Date</th>
+        <th scope="col">Is Draft</th>
+        <th scope="col">Tags</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
+        {% for article in articles %}
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">{{article.id }}</th>
+        <td>{{article.title}}</td>
+        <td>{{article.author}}</td>
+        <td>{{article.body}}</td>
+        <td>{{article.date}}</td>
+        <td>{{article.draft}}</td>
+        <td>{{article.tags}}</td>
+        <td>{{ url_for('blog.edit_article', id=article.id) }}
+            <i class="fa fa-pencil"></i> Edit
+                    </a>
+        </td>
+        <td>
+            <a href="{{ url_for('blog.delete_article', id=article.id) }}">
+              <i class="fa fa-trash"></i> Delete
+            </a>
+          </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
-  
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+</div>
+<div class="bg-light d-flex justify-content-between">
+    {% else %}
+    <h3>No Articles have been added.</h3>
+    {% endif%}
+    <a href="{{ url_for('blog.add_article') }}" class="btn btn-default btn-lg">
+        <i class="fa fa-plus"></i>
+        Add article
+      </a>
+</div>
+    </div>
+</div>
 {% endblock %}
