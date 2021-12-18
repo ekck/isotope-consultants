@@ -116,7 +116,7 @@ class Staff(db.Model):
     def __repr__(self):
         return '<Staff: {}>'.format(self.name)
 
-class Post(db.Model):
+class Article(db.Model):
     """
     Create Post table
     """
