@@ -1,7 +1,7 @@
 # app/blog/forms.py
 
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField, TextAreaField, SubmitField, ValidationError, RadioField, validators, IntegerField
+from wtforms import PasswordField, StringField, TextAreaField, SubmitField, ValidationError, RadioField, BooleanField, validators, IntegerField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 class ArticleForm(FlaskForm):
@@ -13,7 +13,7 @@ class ArticleForm(FlaskForm):
     author = StringField('Author', [validators.DataRequired()])
     body = TextAreaField('Body', [validators.Length(min=30)])
     tags = StringField('Tags', [validators.DataRequired()])
-    draft = RadioField('Draft', choices=[('False','Publish'), ('True','Is a draft')])
+    draft = BooleanField('Publish')
     submit = SubmitField('Submit')
 
 class CartegoryForm(FlaskForm):

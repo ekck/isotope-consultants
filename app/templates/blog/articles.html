@@ -8,15 +8,15 @@
     <div>
         {% if articles %}
         <div>
-<table class="table">
+<table class="table-responsive table-hover">
     <thead class="thead-dark">
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
-        <th scope="col">Body</th>
+        
         <th scope="col">Date</th>
-        <th scope="col">Is Draft</th>
+        <th scope="col">Published</th>
         <th scope="col">Tags</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
@@ -24,16 +24,16 @@
     </thead>
     <tbody>
         {% for article in articles %}
-      <tr>
-        <th scope="row">{{article.id }}</th>
+      <tr >
+        <th onclick="{{ url_for('blog.edit_article', id=article.id) }}" scope="row">{{article.id }}</th>
         <td>{{article.title}}</td>
         <td>{{article.author}}</td>
-        <td>{{article.body}}</td>
+        
         <td>{{article.date}}</td>
         <td>{{article.draft}}</td>
         <td>{{article.tags}}</td>
-        <td>{{ url_for('blog.edit_article', id=article.id) }}
-            <i class="fa fa-pencil"></i> Edit
+        <td><a href="{{ url_for('blog.edit_article', id=article.id) }}">   
+                  <i class="fa fa-pencil"></i> Edit
                     </a>
         </td>
         <td>
@@ -46,7 +46,7 @@
     </tbody>
   </table>
 </div>
-<div class="bg-light d-flex justify-content-between">
+<div class="bg-light d-flex justify-content-center ">
     {% else %}
     <h3>No Articles have been added.</h3>
     {% endif%}
