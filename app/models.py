@@ -42,6 +42,8 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User: {}>'.format(self.username)
+    
+
 
 # Set up user_loader
 @login_manager.user_loader
@@ -118,10 +120,10 @@ class Staff(db.Model):
 
 class Article(db.Model):
     """
-    Create Post table
+    Create an Articles table
     """
 
-    __tablename__ = 'posts'
+    __tablename__ = 'articles'
     
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))

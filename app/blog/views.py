@@ -2,6 +2,7 @@
 
 from flask import abort, flash, redirect, render_template, url_for
 from flask_login import current_user, login_required
+from flask_sqlalchemy import SQLAlchemy
 
 
 from . import blog
@@ -33,7 +34,7 @@ def list_articles():
     articles = Article.query.all()
     return render_template('blog/articles.html', title="Articles", articles=articles)
 
-@blog.route('/add_article')
+@blog.route('/add_article', methods=['GET', 'POST'])
 @login_required
 def add_article():
     """
@@ -41,7 +42,7 @@ def add_article():
     """
 
     add_article = True
-
+    
     form = ArticleForm()
     if form.validate_on_submit():
         article = Article(title=form.title.data,
@@ -59,7 +60,7 @@ def add_article():
             flash('Error: Article name already excits.')
 
         # redirect to articles page
-        return redirect(url_for('blog.articles')) 
+        return redirect(url_for('blog.list_articles')) 
 
     return render_template('blog/article.html', action="Add",add_article=add_article, form=form, title="New Article")
 
