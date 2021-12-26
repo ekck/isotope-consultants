@@ -15,7 +15,9 @@ def blogpage():
     """
     Render the blogpage template on the / route
     """
-    return render_template('blog/blog.html', title="Blog")
+    articles = Article.query.all()
+
+    return render_template('blog/blog.html', title="Blog", articles=articles)
 
 @blog.route('/page')
 def blogsinglepage():
