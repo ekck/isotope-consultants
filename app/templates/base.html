@@ -134,7 +134,13 @@
             
           <li><a href="{{ url_for('home.dashboard') }}">Dashboard</a></li>
           {% endif %}
-          <li><a href="{{ url_for('home.homepage') }}"><i class="fa fa-user"></i>  Hi, {{ current_user.username }}!</a></li>
+          <li class="drop-down"><a href="{{ url_for('home.homepage') }}"><i class="fa fa-user"></i>  Hi, {{ current_user.username }}!</a>
+            <ul>
+              <li><a href="{{ url_for('home.about') }}">My Profile</a></li>
+              <li><a href="{{ url_for('home.team') }}">Change password</a></li>
+              
+              
+            </ul></li>
           <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
           
         {% else %}
