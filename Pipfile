@@ -12,6 +12,7 @@ flask = "*"
 flask-bootstrap = "*"
 email-validator = "*"
 psycopg2 = "*"
+gunicorn = "*"
 
 [dev-packages]
 
