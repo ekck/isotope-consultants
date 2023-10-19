@@ -5,5 +5,5 @@ build_command = "pipenv run build"
 # Deploy settings
 target = "production"
 environment = {
-  "DATABASE_URL": "postgresql://localhost:5432/isotopedb",
+  DATABASE_URL = "postgresql://localhost:5432/isotopedb",
 }
