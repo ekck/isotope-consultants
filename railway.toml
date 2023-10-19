@@ -8,4 +8,5 @@ environment = {
   DATABASE_URL = "postgresql://localhost:5432/isotopedb",
   SECRET_KEY = "my_secret_key",
    PORT = 8000,
+   DEBUG = true
 }
