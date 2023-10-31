@@ -1,4 +1,18 @@
+import os
+import sys
+
 # config.py
+
+path = '/etc/nginx/sites-available/isotope-consultants/isotope-consultants'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['FLASK_CONFIG'] = 'production'
+os.environ['SECRET_KEY'] = 'YOUR_SECRET_KEY'
+os.environ['SQLALCHEMY_DATABASE_URI'] = ''
+
+
+
 
 class Config(object):
     """
@@ -27,3 +41,6 @@ app_config = {
     'development': DevelopmentConfig,
     'production': ProductionConfig
 }
+
+
+
