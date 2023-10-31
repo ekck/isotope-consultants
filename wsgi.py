@@ -1,9 +1,13 @@
 import os
+import sys
 
-from app import create_app
+path = '~/Documents/apps/isotope-consultants'
+if path not in sys.path:
+    sys.path.append(path)
 
-config_name = os.getenv('FLASK_CONFIG')
-app = create_app(config_name)
+os.environ['FLASK_CONFIG'] = 'production'
+os.environ['SECRET_KEY'] = 'YOUR_SECRET_KEY'
+os.environ['SQLALCHEMY_DATABASE_URI'] = ''
+os.environ['SQLALCHEMY_TRACK_MODIFICATIONS'] = "False"
 
-if __name__ == '__main__':
-    app.run()
+from run import app as application
