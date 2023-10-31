@@ -3,7 +3,7 @@ import sys
 
 # config.py
 
-path = '/etc/nginx/sites-available/isotope-consultants/isotope-consultants'
+path = ''
 if path not in sys.path:
     sys.path.append(path)
 
